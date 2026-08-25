@@ -106,7 +106,3 @@ python main.py
 ## ⚠️ Important Note
 
 This project is built for educational, portfolio, and logic demonstration purposes. It highlights efficient data structuring and software engineering patterns in a lightweight environment.
-
-```
-
-```
