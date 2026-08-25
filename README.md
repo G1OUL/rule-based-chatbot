@@ -1,11 +1,6 @@
 ```markdown
 # 🤖 Deterministic Logic Engine & Rule-Based Response System
 
-[![HTML5](https://img.shields.io/badge/HTML5-Structure-orange.svg)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![JavaScript](https://img.shields.io/badge/JavaScript-Logic-yellow.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Python](https://img.shields.io/badge/Python-Engine-blue.svg)](https://www.python.org/)
-[![Status](https://img.shields.io/badge/Status-Operational-success.svg)]()
-
 A lightweight, efficient deterministic rule-based response system built to process user commands via strict input sanitization, instant $O(1)$ dictionary lookups, and structured control flow loop logic[cite: 1].
 
 ---
