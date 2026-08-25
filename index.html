@@ -1,24 +1,153 @@
-{% extends "base.html" %}
-{% block content %}
-<div class="p-5 mb-4 bg-light rounded-3 text-center">
-    <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">{{ t('welcome') }}</h1>
-        <p class="col-md-8 mx-auto fs-4">AI-Powered Loan Advisory Platform for Personalized Recommendations and Transparency.</p>
-        <a href="{{ url_for('auth.signup') }}" class="btn btn-primary btn-lg">Get Started</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deterministic Logic Engine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        h2 {
+            margin-top: 0;
+            color: #58a6ff;
+            text-align: center;
+        }
+        .chat-box {
+            height: 300px;
+            border: 1px solid #30363d;
+            background: #0d1117;
+            border-radius: 6px;
+            padding: 10px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .message {
+            padding: 8px 12px;
+            border-radius: 6px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        .user-msg {
+            background: #1f6feb;
+            color: white;
+            align-self: flex-end;
+        }
+        .engine-msg {
+            background: #21262d;
+            border: 1px solid #30363d;
+            align-self: flex-start;
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            color: white;
+            border-radius: 6px;
+            outline: none;
+        }
+        input[type="text"]:focus {
+            border-color: #58a6ff;
+        }
+        button {
+            padding: 10px 20px;
+            background: #238636;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #2ea043;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Deterministic Logic Engine</h2>
+    <div class="chat-box" id="chatBox">
+        <div class="message engine-msg">System Initialized. Type 'help', 'status', or 'hello'.</div>
+    </div>
+    <div class="input-group">
+        <input type="text" id="userInput" placeholder="Type a command..." autofocus>
+        <button onclick="handleProcess()">Send</button>
     </div>
 </div>
-<div class="row text-center mt-5">
-    <div class="col-md-4">
-        <h3>AI Recommendations</h3>
-        <p>Personalized loan suggestions based on your profile.</p>
-    </div>
-    <div class="col-md-4">
-        <h3>Hidden Cost Transparency</h3>
-        <p>See exactly what you'll pay with no hidden charges.</p>
-    </div>
-    <div class="col-md-4">
-        <h3>Approval Probability</h3>
-        <p>Know your chances before you apply.</p>
-    </div>
-</div>
-{% endblock %}
+
+<script>
+    // Dictionary-based lookup matching your Python IPO logic
+    const knowledgeBase = {
+        "help": "Available commands: 'hello', 'status', 'features', 'exit'.",
+        "hello": "Hello! Welcome to the Deterministic Logic Engine.",
+        "status": "System Status: All rules and modules running smoothly.",
+        "features": "Features: Input sanitization (.toLowerCase().trim()), O(1) dictionary mapping, and IPO pattern design.",
+        "exit": "Session ended. Refresh the page to restart."
+    };
+
+    function handleProcess() {
+        const inputField = document.getElementById("userInput");
+        const rawInput = inputField.value;
+
+        if (!rawInput.trim()) return;
+
+        // Input sanitization matching your project logic
+        const sanitizedInput = rawInput.toLowerCase().trim();
+        appendMessage("User > " + rawInput, "user-msg");
+
+        // O(1) dictionary lookup process
+        let response = "Unrecognized command. Type 'help' for options.";
+        if (knowledgeBase.hasOwnProperty(sanitizedInput)) {
+            response = knowledgeBase[sanitizedInput];
+        }
+
+        setTimeout(() => {
+            appendMessage("Engine > " + response, "engine-msg");
+        }, 200);
+
+        inputField.value = "";
+    }
+
+    document.getElementById("userInput").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            handleProcess();
+        }
+    });
+
+    function appendMessage(text, className) {
+        const chatBox = document.getElementById("chatBox");
+        const msgDiv = document.createElement("div");
+        msgDiv.className = `message ${className}`;
+        msgDiv.textContent = text;
+        chatBox.appendChild(msgDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+</script>
+
+</body>
+</html>
