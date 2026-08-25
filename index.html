@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3 text-center">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">{{ t('welcome') }}</h1>
+        <p class="col-md-8 mx-auto fs-4">AI-Powered Loan Advisory Platform for Personalized Recommendations and Transparency.</p>
+        <a href="{{ url_for('auth.signup') }}" class="btn btn-primary btn-lg">Get Started</a>
+    </div>
+</div>
+<div class="row text-center mt-5">
+    <div class="col-md-4">
+        <h3>AI Recommendations</h3>
+        <p>Personalized loan suggestions based on your profile.</p>
+    </div>
+    <div class="col-md-4">
+        <h3>Hidden Cost Transparency</h3>
+        <p>See exactly what you'll pay with no hidden charges.</p>
+    </div>
+    <div class="col-md-4">
+        <h3>Approval Probability</h3>
+        <p>Know your chances before you apply.</p>
+    </div>
+</div>
+{% endblock %}
