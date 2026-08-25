@@ -1,7 +1,7 @@
 def main():
     # Knowledge Base: Dictionary with intents and clean responses
     responses = {
-        'hello': 'Hi! I am your DecodeLabs AI assistant.',
+        'hello': 'Hi! I am AI assistant.',
         'help': 'I can respond to keywords like: hello, status, project, mission, or exit.',
         'status': 'System is online and running in a deterministic state.',
         'project': 'Project 1: Rule-Based AI Chatbot.',
